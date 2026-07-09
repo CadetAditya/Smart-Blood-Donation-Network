@@ -1,0 +1,14 @@
+# Ignore compiled class files directory
+/bin/
+
+# Ignore local OS metadata
+.DS_Store
+Thumbs.db
+
+# Ignore common IDE configuration files
+.idea/
+.project
+.classpath
+.settings/
+*.iml
+*.class
