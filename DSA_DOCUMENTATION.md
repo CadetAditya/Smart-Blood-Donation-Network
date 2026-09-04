@@ -30,6 +30,7 @@ public synchronized void deleteDonor(int id) {
 }
 ```
 
+
 ---
 
 ## 2. O(1) Unique Constraint Validation (HashMap)
@@ -37,7 +38,7 @@ public synchronized void deleteDonor(int id) {
 ### Concept
 To prevent duplicate registrations, the system uses the donor's phone number as a unique key. Instead of looping through all records ($O(N)$), a `HashMap` checks existence in $O(1)$ time.
 
-### Implementation
+### Implementation 
 ```java
 // Declaration in BloodBankManager.java
 private final HashMap<String, Donor> donorByPhone = new HashMap<>();
@@ -55,6 +56,7 @@ public synchronized void registerDonor(String name, int age, String phone, ...) 
     donorByPhone.put(donor.getPhone(), donor); // Index phone number
 }
 ```
+
 
 ---
 
@@ -97,6 +99,7 @@ private void removeFromIndex(Donor donor) {
         if (cityMap.isEmpty()) {
             donorIndex.remove(bg);
         }
+
     }
 }
 
@@ -122,7 +125,7 @@ public synchronized List<Donor> searchCompatibleDonors(String recipientBloodGrou
     }
     return results;
 }
-```
+``
 
 ---
 
@@ -130,6 +133,7 @@ public synchronized List<Donor> searchCompatibleDonors(String recipientBloodGrou
 
 ### Concept
 Patient requests are prioritized based on emergency levels. The emergency requests are stored in a binary heap (`PriorityQueue`). It uses a custom comparator with a timestamp tie-breaker for FIFO execution under the same priority class.
+
 
 ### Implementation
 ```java
@@ -150,6 +154,7 @@ this.emergencyQueue = new PriorityQueue<>((r1, r2) -> {
     // 2. Tie-Breaker: Compare timestamps (Ascending order: Older request first)
     return r1.getRequestTime().compareTo(r2.getRequestTime());
 });
+
 
 // Enqueue Request: O(log N)
 public synchronized void addRequest(Request request) {
