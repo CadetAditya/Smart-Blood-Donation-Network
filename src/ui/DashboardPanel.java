@@ -13,6 +13,7 @@ public class DashboardPanel extends JPanel {
     private final BloodBankManager manager;
     private final MainFrame mainFrame;
 
+    
     private final JLabel totalDonorsLabel;
     private final JLabel activeRequestsLabel;
     private final JLabel donationHistoryLabel;
@@ -42,7 +43,7 @@ public class DashboardPanel extends JPanel {
         headerPanel.add(descLabel, BorderLayout.SOUTH);
         add(headerPanel, BorderLayout.NORTH);
 
-        // Center scroll pane content
+        // Center scroll pane content 
         JPanel centerPanel = new JPanel();
         centerPanel.setOpaque(false);
         centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
@@ -131,6 +132,7 @@ public class DashboardPanel extends JPanel {
         refresh();
     }
 
+    
     private CardPanel createStatCard(String title, JLabel valueLabel, Color accentColor) {
         CardPanel card = new CardPanel(12, Theme.BG_CARD, Theme.BORDER_COLOR);
         card.setLayout(new BorderLayout());
